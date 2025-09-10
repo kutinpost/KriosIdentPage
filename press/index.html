@@ -6,8 +6,8 @@
 <title>KRIOS · Press</title>
 <style>
   :root { --bg:#0b0f14; --ink:#e7e9ec; --muted:#9aa3ad; --line:#2a323b; --accent:#8aa9ff; }
-  body { margin:0; font-family:system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; background:var(--bg); color:var(--ink); line-height:1.5; }
-  .wrap { max-width:960px; margin:0 auto; padding:24px 16px 48px; }
+  body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif; background:var(--bg); color:var(--ink); line-height:1.5; }
+  .wrap { max-width:1100px; margin:0 auto; padding:24px 16px 56px; }
   header { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
   h1 { font-size:28px; margin:0; }
   h2 { font-size:20px; margin:0 0 10px; }
@@ -17,17 +17,25 @@
   section { border:1px solid var(--line); border-radius:16px; padding:16px; margin-top:16px; background:linear-gradient(180deg,rgba(255,255,255,.02),transparent); }
   a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
   .files a { display:inline-block; margin:6px 12px 6px 0; padding:8px 12px; border:1px solid var(--line); border-radius:10px; }
-  .thumbs { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-  .thumbs img { width:100%; height:auto; border-radius:10px; border:1px solid var(--line); }
+  .thumbs { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  .thumbs img { width:100%; aspect-ratio:3/2; object-fit:cover; border-radius:10px; border:1px solid var(--line); }
+  @media (max-width:900px){ .thumbs{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:560px){ .thumbs{ grid-template-columns:1fr; } }
+
   .hero { border:1px solid var(--line); border-radius:16px; padding:18px; background:linear-gradient(180deg,rgba(138,169,255,.12),rgba(255,255,255,.02)); }
+  .preview { display:grid; grid-template-columns: minmax(0,1.25fr) minmax(280px,.75fr); gap:16px; align-items:start; }
+  .card { border:1px solid var(--line); border-radius:12px; padding:12px; background:rgba(255,255,255,.02); }
+  .card.img { padding:0; overflow:hidden; }
+  .card.img img { width:100%; height:100%; max-height:420px; object-fit:cover; display:block; border-radius:12px; }
+  @media (max-width:900px){ .preview{ grid-template-columns:1fr; } .card.img img{ max-height:320px; } }
+
   .cta { display:flex; gap:10px; flex-wrap:wrap; }
   .cta a { display:inline-block; padding:10px 14px; border:1px solid var(--accent); border-radius:12px; }
-  .preview { display:grid; grid-template-columns:1fr; gap:12px; margin-top:12px; }
-  @media (min-width:860px){ .preview{ grid-template-columns:1.2fr .8fr; } }
-  .card { border:1px solid var(--line); border-radius:12px; padding:10px; background:rgba(255,255,255,.02); }
-  footer { margin-top:24px; border-top:1px solid var(--line); padding-top:12px; display:flex; justify-content:space-between; color:var(--muted); font-size:14px; }
+
+  footer { margin-top:28px; border-top:1px solid var(--line); padding-top:12px; display:flex; justify-content:space-between; color:var(--muted); font-size:14px; }
   .hidden { display:none; }
   noscript { color:var(--muted); font-size:14px; }
+  ul.tight li { margin:4px 0; }
 </style>
 </head>
 <body>
@@ -46,18 +54,18 @@
     <section class="hero">
       <h2>Демо-сайт проекта</h2>
       <p>Книга — офлайн-артефакт. <b>Демо-сайт</b> показывает процесс, динамику и расширенные сцены (QR в книге ведут сюда).</p>
-      <div class="cta">
-        <a href="https://kutinpost.github.io/KriosIdentPage/" target="_blank" rel="noopener">Открыть демо-сайт</a>
-      </div>
-      <div class="preview">
-        <div class="card"><img src="images/img01.png" alt="Превью демо-сайта"></div>
+      <div class="preview" style="margin-top:12px;">
+        <div class="card img"><img src="images/img01.png" alt="Превью демо-сайта"></div>
         <div class="card">
           <p><b>Зачем это нужно:</b></p>
-          <ul>
-            <li>QR в книге → конкретная сцена на сайте</li>
-            <li>Живые обновления без перепечатывания</li>
-            <li>Дополнительные материалы и процесс</li>
+          <ul class="tight">
+            <li>QR в книге → конкретная сцена на сайте;</li>
+            <li>Живые обновления без перепечатывания;</li>
+            <li>Дополнительные материалы и процесс.</li>
           </ul>
+          <div class="cta" style="margin-top:8px;">
+            <a href="https://kutinpost.github.io/KriosIdentPage/" target="_blank" rel="noopener">Открыть демо-сайт</a>
+          </div>
         </div>
       </div>
     </section>
@@ -75,9 +83,20 @@
     <section>
       <h2>Проект</h2>
       <p><b>«Эпопея невозможности: Идентифракт»</b> — печатный артбук + демо-сайт. Книга — самодостаточный объект; веб-слой расширяет сцены (QR).</p>
-      <ul>
+      <ul class="tight">
         <li>Формат: 200×260 мм или 240×300 мм · 200–256 стр. · твёрдый переплёт.</li>
         <li>Тон: жёсткий/минималистичный; <b>честность как персонаж</b>.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Как работают QR (коротко)</h2>
+      <ul class="tight">
+        <li><b>Стабильные якоря:</b> каждому QR соответствует постоянная URL-якорь-страница на демо-сайте.</li>
+        <li><b>Офлайн-first:</b> книга читается автономно; QR — опциональное расширение.</li>
+        <li><b>Версионирование:</b> если сцена обновилась, сохраняется адрес, меняется только содержимое (v1→v2).</li>
+        <li><b>Фолбэк:</b> если интернет недоступен — рядом с QR печатается короткий тезис сцены.</li>
+        <li><b>Тех. требования к QR:</b> размер в печати ≥15 мм, контраст 100%, тихая зона 4×, тест с 3 устройствами.</li>
       </ul>
     </section>
 
@@ -103,22 +122,21 @@
 
   <!-- ================= EN ================= -->
   <main id="en" class="hidden" lang="en">
-    <!-- Hero: demo site -->
     <section class="hero">
       <h2>Project Demo Site</h2>
       <p>The book is a self-contained artefact. The <b>demo site</b> carries process, dynamics and extended scenes (QR in print point here).</p>
-      <div class="cta">
-        <a href="https://kutinpost.github.io/KriosIdentPage/" target="_blank" rel="noopener">Open Demo Site</a>
-      </div>
-      <div class="preview">
-        <div class="card"><img src="images/img01.png" alt="Demo site preview"></div>
+      <div class="preview" style="margin-top:12px;">
+        <div class="card img"><img src="images/img01.png" alt="Demo site preview"></div>
         <div class="card">
           <p><b>Why it matters:</b></p>
-          <ul>
-            <li>QR in print → specific scene online</li>
-            <li>Live updates without reprinting</li>
-            <li>Process docs and extras</li>
+          <ul class="tight">
+            <li>QR in print → specific scene online;</li>
+            <li>Live updates without reprinting;</li>
+            <li>Process docs and extras.</li>
           </ul>
+          <div class="cta" style="margin-top:8px;">
+            <a href="https://kutinpost.github.io/KriosIdentPage/" target="_blank" rel="noopener">Open demo site</a>
+          </div>
         </div>
       </div>
     </section>
@@ -126,7 +144,7 @@
     <section>
       <h2>Materials</h2>
       <div class="files">
-        <a href="https://kutinpost.github.io/KriosIdentPage/" target="_blank" rel="noopener">Demo Site</a>
+        <a href="https://kutinpost.github.io/KriosIdentPage/" target="_blank" rel="noopener">Demo site</a>
         <a href="KRIOS_OnePager_RU_EN.pdf" download>One-Pager (RU/EN)</a>
         <a href="Krios_MiniDummy_EN.pdf" download>Mini-Dummy (EN)</a>
         <a href="Krios_MiniDummy_RU.pdf" download>Mini-Dummy (RU)</a>
@@ -136,9 +154,20 @@
     <section>
       <h2>Project</h2>
       <p><b>“The Epic of Impossibility: Identifract”</b> — a print art-book with a demo site. The book stands on its own; the web layer extends scenes via QR anchors.</p>
-      <ul>
-        <li>Trim size: 200×260 mm or 240×300 mm · 200–256 pp · casebound.</li>
+      <ul class="tight">
+        <li>Trim: 200×260 mm or 240×300 mm · 200–256 pp · casebound.</li>
         <li>Tone: hard/minimal; honesty as subject.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>QR workflow (brief)</h2>
+      <ul class="tight">
+        <li><b>Stable anchors:</b> each QR maps to a permanent URL on the demo site.</li>
+        <li><b>Offline-first:</b> the book works alone; QR is optional extension.</li>
+        <li><b>Versioning:</b> keep the same URL, update the content (v1→v2).</li>
+        <li><b>Fallback:</b> short printed summary near the QR for offline cases.</li>
+        <li><b>QR spec:</b> print size ≥15 mm, high contrast, quiet zone 4×, test on 3 devices.</li>
       </ul>
     </section>
 
@@ -164,7 +193,7 @@
 
   <footer>
     <span>v2 · Press Kit</span>
-    <a href="https://kutinpost.github.io/KriosIdentPage/" target="_blank" rel="noopener"><b>Open Demo Site</b></a>
+    <a href="https://kutinpost.github.io/KriosIdentPage/" target="_blank" rel="noopener"><b>Open demo site</b></a>
   </footer>
 </div>
 
