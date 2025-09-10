@@ -27,6 +27,7 @@
   .card { border:1px solid var(--line); border-radius:12px; padding:10px; background:rgba(255,255,255,.02); }
   footer { margin-top:24px; border-top:1px solid var(--line); padding-top:12px; display:flex; justify-content:space-between; color:var(--muted); font-size:14px; }
   .hidden { display:none; }
+  noscript { color:var(--muted); font-size:14px; }
 </style>
 </head>
 <body>
@@ -34,29 +35,28 @@
   <header>
     <h1>KRIOS — Press</h1>
     <div class="lang">
-      <button id="btn-ru" aria-pressed="true">RU</button>
-      <button id="btn-en" aria-pressed="false">EN</button>
+      <button id="btn-ru" type="button" aria-pressed="true">RU</button>
+      <button id="btn-en" type="button" aria-pressed="false">EN</button>
     </div>
   </header>
 
   <!-- ================= RU ================= -->
   <main id="ru">
-    <!-- Герой: сайт-спутник -->
+    <!-- Герой: демо-сайт -->
     <section class="hero">
-      <h2>Живой слой проекта — сайт-спутник</h2>
-      <p>Книга — офлайн-артефакт. <b>Сайт</b> раскрывает процесс, динамику и расширенные сцены (QR-якоря ведут сюда).</p>
+      <h2>Демо-сайт проекта</h2>
+      <p>Книга — офлайн-артефакт. <b>Демо-сайт</b> показывает процесс, динамику и расширенные сцены (QR в книге ведут сюда).</p>
       <div class="cta">
-        <a href="https://kutinpost.github.io/KriosIdentPage/" target="_blank" rel="noopener">Открыть сайт-спутник</a>
-        <a href="https://kutinpost.github.io/KriosIdentPage/#scenes" target="_blank" rel="noopener">Сцены / Якори</a>
+        <a href="https://kutinpost.github.io/KriosIdentPage/" target="_blank" rel="noopener">Открыть демо-сайт</a>
       </div>
       <div class="preview">
-        <div class="card"><img src="../images/preview_site.png" alt="Превью сайта-спутника"></div>
+        <div class="card"><img src="images/img01.png" alt="Превью демо-сайта"></div>
         <div class="card">
-          <p><b>Как это работает:</b></p>
+          <p><b>Зачем это нужно:</b></p>
           <ul>
-            <li>QR в книге → конкретная сцена сайта</li>
+            <li>QR в книге → конкретная сцена на сайте</li>
             <li>Живые обновления без перепечатывания</li>
-            <li>Документация процесса и доп. материалы</li>
+            <li>Дополнительные материалы и процесс</li>
           </ul>
         </div>
       </div>
@@ -65,14 +65,16 @@
     <section>
       <h2>Материалы</h2>
       <div class="files">
-        <a href="https://kutinpost.github.io/KriosIdentPage/" target="_blank" rel="noopener">Companion Site</a>
+        <a href="https://kutinpost.github.io/KriosIdentPage/" target="_blank" rel="noopener">Демо-сайт</a>
         <a href="KRIOS_OnePager_RU_EN.pdf" download>One-Pager (RU/EN)</a>
         <a href="Krios_MiniDummy_RU.pdf" download>Mini-Dummy (RU)</a>
         <a href="Krios_MiniDummy_EN.pdf" download>Mini-Dummy (EN)</a>
       </div>
-      <section>
+    </section>
+
+    <section>
       <h2>Проект</h2>
-      <p><b>«Эпопея невозможности: Идентифракт»</b> — печатный артбук + сайт-спутник. Книга — самодостаточный объект; веб — расширение сцен (QR-якоря).</p>
+      <p><b>«Эпопея невозможности: Идентифракт»</b> — печатный артбук + демо-сайт. Книга — самодостаточный объект; веб-слой расширяет сцены (QR).</p>
       <ul>
         <li>Формат: 200×260 мм или 240×300 мм · 200–256 стр. · твёрдый переплёт.</li>
         <li>Тон: жёсткий/минималистичный; <b>честность как персонаж</b>.</li>
@@ -82,12 +84,12 @@
     <section>
       <h2>Изображения</h2>
       <div class="thumbs">
-        <img src="images/img01.png" alt="Разворот 1">
-        <img src="images/img02.png" alt="Разворот 2">
-        <img src="images/img03.png" alt="Разворот 3">
-        <img src="images/img04.png" alt="Разворот 4">
-        <img src="images/img05.png" alt="Разворот 5">
-        <img src="images/img06.png" alt="Разворот 6">
+        <img src="images/img02.png" alt="Разворот 1">
+        <img src="images/img03.png" alt="Разворот 2">
+        <img src="images/img04.png" alt="Разворот 3">
+        <img src="images/img05.png" alt="Разворот 4">
+        <img src="images/img06.png" alt="Разворот 5">
+        <img src="images/img07.png" alt="Разворот 6">
       </div>
     </section>
 
@@ -101,20 +103,19 @@
 
   <!-- ================= EN ================= -->
   <main id="en" class="hidden" lang="en">
-    <!-- Hero: companion site -->
+    <!-- Hero: demo site -->
     <section class="hero">
-      <h2>The Live Layer — Companion Website</h2>
-      <p>The book is a self-contained artefact. The <b>website</b> carries process, dynamics and extended scenes (QR anchors point here).</p>
+      <h2>Project Demo Site</h2>
+      <p>The book is a self-contained artefact. The <b>demo site</b> carries process, dynamics and extended scenes (QR in print point here).</p>
       <div class="cta">
-        <a href="https://kutinpost.github.io/KriosIdentPage/" target="_blank" rel="noopener">Open Companion Site</a>
-        <a href="https://kutinpost.github.io/KriosIdentPage/#scenes" target="_blank" rel="noopener">Scenes / Anchors</a>
+        <a href="https://kutinpost.github.io/KriosIdentPage/" target="_blank" rel="noopener">Open Demo Site</a>
       </div>
       <div class="preview">
-        <div class="card"><img src="../images/preview_site.png" alt="Companion site preview"></div>
+        <div class="card"><img src="images/img01.png" alt="Demo site preview"></div>
         <div class="card">
-          <p><b>How it works:</b></p>
+          <p><b>Why it matters:</b></p>
           <ul>
-            <li>QR in print → specific scene on the site</li>
+            <li>QR in print → specific scene online</li>
             <li>Live updates without reprinting</li>
             <li>Process docs and extras</li>
           </ul>
@@ -125,7 +126,7 @@
     <section>
       <h2>Materials</h2>
       <div class="files">
-        <a href="https://kutinpost.github.io/KriosIdentPage/" target="_blank" rel="noopener">Companion Site</a>
+        <a href="https://kutinpost.github.io/KriosIdentPage/" target="_blank" rel="noopener">Demo Site</a>
         <a href="KRIOS_OnePager_RU_EN.pdf" download>One-Pager (RU/EN)</a>
         <a href="Krios_MiniDummy_EN.pdf" download>Mini-Dummy (EN)</a>
         <a href="Krios_MiniDummy_RU.pdf" download>Mini-Dummy (RU)</a>
@@ -134,7 +135,7 @@
 
     <section>
       <h2>Project</h2>
-      <p><b>“The Epic of Impossibility: Identifract”</b> — a print art-book with a companion website. The book stands on its own; the web extends scenes via QR anchors.</p>
+      <p><b>“The Epic of Impossibility: Identifract”</b> — a print art-book with a demo site. The book stands on its own; the web layer extends scenes via QR anchors.</p>
       <ul>
         <li>Trim size: 200×260 mm or 240×300 mm · 200–256 pp · casebound.</li>
         <li>Tone: hard/minimal; honesty as subject.</li>
@@ -144,12 +145,12 @@
     <section>
       <h2>Images</h2>
       <div class="thumbs">
-        <img src="images/img01.png" alt="Spread 1">
-        <img src="images/img02.png" alt="Spread 2">
-        <img src="images/img03.png" alt="Spread 3">
-        <img src="images/img04.png" alt="Spread 4">
-        <img src="images/img05.png" alt="Spread 5">
-        <img src="images/img06.png" alt="Spread 6">
+        <img src="images/img02.png" alt="Spread 1">
+        <img src="images/img03.png" alt="Spread 2">
+        <img src="images/img04.png" alt="Spread 3">
+        <img src="images/img05.png" alt="Spread 4">
+        <img src="images/img06.png" alt="Spread 5">
+        <img src="images/img07.png" alt="Spread 6">
       </div>
     </section>
 
@@ -163,10 +164,39 @@
 
   <footer>
     <span>v2 · Press Kit</span>
-    <a href="https://kutinpost.github.io/KriosIdentPage/" target="_blank" rel="noopener"><b>Open Companion Site</b></a>
+    <a href="https://kutinpost.github.io/KriosIdentPage/" target="_blank" rel="noopener"><b>Open Demo Site</b></a>
   </footer>
 </div>
 
+<noscript>Для переключения языка нужен JavaScript.</noscript>
 <script>
+(function(){
   const ru = document.getElementById('ru');
-    </section>
+  const en = document.getElementById('en');
+  const btnRU = document.getElementById('btn-ru');
+  const btnEN = document.getElementById('btn-en');
+
+  function setLang(lang){
+    const isRU = (lang === 'ru');
+    ru.classList.toggle('hidden', !isRU);
+    en.classList.toggle('hidden', isRU);
+    btnRU.setAttribute('aria-pressed', isRU);
+    btnEN.setAttribute('aria-pressed', !isRU);
+    document.documentElement.lang = isRU ? 'ru' : 'en';
+    try { localStorage.setItem('krios_press_lang', lang); } catch(e){}
+    if (location.hash !== '#' + lang) history.replaceState(null, '', '#' + lang);
+  }
+
+  // init from hash or localStorage
+  let init = (location.hash || '').replace('#','');
+  if (init !== 'ru' && init !== 'en') {
+    try { init = localStorage.getItem('krios_press_lang') || 'ru'; } catch(e){ init = 'ru'; }
+  }
+  setLang(init);
+
+  btnRU.addEventListener('click', ()=> setLang('ru'));
+  btnEN.addEventListener('click', ()=> setLang('en'));
+})();
+</script>
+</body>
+</html>
