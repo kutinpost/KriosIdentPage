@@ -490,6 +490,37 @@
   btnRU.addEventListener('click', ()=>setLang('ru'));
   btnEN.addEventListener('click', ()=>setLang('en'));
 })();
+  (function(){
+  function fitHeading(h1, opts){
+    const parent = h1.closest('.stack');
+    if(!parent) return;
+    const conf = Object.assign({maxPx: 68, minPx: 30, step: 1, pad: 0.96}, opts||{});
+    const apply = () => {
+      // вернуть базовый кегль, потом снижать до влезания
+      h1.style.fontSize = conf.maxPx + 'px';
+      let size = conf.maxPx;
+      const limit = parent.clientWidth * conf.pad; // небольшой внутренний люфт
+      // защитный цикл — не дёргает верстку, шаг маленький
+      while (h1.scrollWidth > limit && size > conf.minPx){
+        size -= conf.step;
+        h1.style.fontSize = size + 'px';
+      }
+    };
+    // следим за ресайзом/сменой языка/загрузкой шрифтов
+    const ro = new ResizeObserver(apply);
+    ro.observe(parent);
+    window.addEventListener('load', apply);
+    // если используешь переключение RU/EN по hash — пересчитать
+    window.addEventListener('hashchange', () => setTimeout(apply, 20));
+    // на случай смены системных шрифтов
+    document.fonts && document.fonts.ready.then(apply);
+  }
+
+  const h1ru = document.getElementById('title-ru');
+  const h1en = document.getElementById('title-en');
+  if(h1ru) fitHeading(h1ru, {maxPx:68, minPx:32});
+  if(h1en) fitHeading(h1en, {maxPx:68, minPx:32});
+})();
 </script>
 </body>
 </html>
